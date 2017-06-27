@@ -836,7 +836,7 @@
                         "Ref": "EICommonSecurityGroup"
                     }
                 ],
-                "ImageId": "ami-xxxxxx",
+                "ImageId": "ami-8fab8fea",
                 "InstanceType": "t2.medium",
                 "BlockDeviceMappings": [
                     {
