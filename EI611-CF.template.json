@@ -485,7 +485,11 @@
     "Resources": {
         "EIVPC": {
             "Type": "AWS::EC2::VPC",
-            "Properties": {},
+            "Properties": {
+                "CidrBlock": "10.0.0.0/16",
+                "EnableDnsSupport": true,
+                "EnableDnsHostnames": true
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "16835601-a199-4d4a-85ba-b18e6cceaa39"
@@ -497,6 +501,16 @@
             "Properties": {
                 "VpcId": {
                     "Ref": "EIVPC"
+                },
+                "CidrBlock": "10.0.252.0/24",
+                "MapPublicIpOnLaunch": true,
+                "AvailabilityZone": {
+                    "Fn::Select": [
+                        "0",
+                        {
+                            "Fn::GetAZs": ""
+                        }
+                    ]
                 }
             },
             "Metadata": {
@@ -510,6 +524,16 @@
             "Properties": {
                 "VpcId": {
                     "Ref": "EIVPC"
+                },
+                "CidrBlock": "10.0.254.0/24",
+                "MapPublicIpOnLaunch": true,
+                "AvailabilityZone": {
+                    "Fn::Select": [
+                        "1",
+                        {
+                            "Fn::GetAZs": ""
+                        }
+                    ]
                 }
             },
             "Metadata": {
@@ -552,7 +576,8 @@
                 },
                 "RouteTableId": {
                     "Ref": "PublicRouteTableSN1"
-                }
+                },
+                "DestinationCidrBlock": "0.0.0.0/0"
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -568,7 +593,8 @@
                 },
                 "RouteTableId": {
                     "Ref": "PublicRouteTableSN2"
-                }
+                },
+                "DestinationCidrBlock": "0.0.0.0/0"
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -604,9 +630,146 @@
         "EICommonSecurityGroup": {
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
+                "GroupDescription": "Common Security Group",
                 "VpcId": {
                     "Ref": "EIVPC"
-                }
+                },
+                "SecurityGroupEgress": [
+                    {
+                        "IpProtocol": -1,
+                        "FromPort": "0",
+                        "ToPort": "0",
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ],
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "22",
+                        "ToPort": "22",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "2049",
+                        "ToPort": "2049",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "9443",
+                        "ToPort": "9443",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "5701",
+                        "ToPort": "5701",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "9763",
+                        "ToPort": "9763",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "8243",
+                        "ToPort": "8243",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "8280",
+                        "ToPort": "8280",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "443",
+                        "ToPort": "443",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "80",
+                        "ToPort": "80",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "3306",
+                        "ToPort": "3306",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "ICMP",
+                        "FromPort": "-1",
+                        "ToPort": "-1",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "3306",
+                        "ToPort": "3306",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "10389",
+                        "ToPort": "10389",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "8000",
+                        "ToPort": "8000",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "5701",
+                        "ToPort": "5701",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "5672",
+                        "ToPort": "5672",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "9611",
+                        "ToPort": "9611",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "9711",
+                        "ToPort": "9711",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "10397",
+                        "ToPort": "10397",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "7611",
+                        "ToPort": "7611",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "7711",
+                        "ToPort": "7711",
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ]
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -620,9 +783,42 @@
                 "LaunchConfigurationName": {
                     "Ref": "EILaunchConfig"
                 },
+                "VPCZoneIdentifier": [
+                    {
+                        "Ref": "PublicSubnet1"
+                    },
+                    {
+                        "Ref": "PublicSubnet2"
+                    }
+                ],
+                "DesiredCapacity": 1,
+                "MinSize": 1,
+                "MaxSize": 1,
                 "LoadBalancerNames": [
                     {
                         "Ref": "EILoadBalancer"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WSO2EI-Instance",
+                        "PropagateAtLaunch": "true"
+                    },
+                    {
+                        "Key": "Product",
+                        "Value": "WSO2EI",
+                        "PropagateAtLaunch": "true"
+                    },
+                    {
+                        "Key": "Version",
+                        "Value": "6.1.1",
+                        "PropagateAtLaunch": "true"
+                    },
+                    {
+                        "Key": "Cluster",
+                        "Value": "WSO2EI-Integrator",
+                        "PropagateAtLaunch": "true"
                     }
                 ]
             },
@@ -639,7 +835,23 @@
                     {
                         "Ref": "EICommonSecurityGroup"
                     }
-                ]
+                ],
+                "ImageId": "ami-xxxxxx",
+                "InstanceType": "t2.medium",
+                "BlockDeviceMappings": [
+                    {
+                        "DeviceName": "/dev/sda1",
+                        "Ebs": {
+                            "VolumeSize": "20",
+                            "VolumeType": "gp2",
+                            "DeleteOnTermination": "true"
+                        }
+                    }
+                ],
+                "KeyName": {
+                    "Ref": "KeyPairName"
+                },
+                "UserData": ""
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -650,6 +862,7 @@
         "EILoadBalancer": {
             "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
             "Properties": {
+                "CrossZone": true,
                 "SecurityGroups": [
                     {
                         "Ref": "EICommonSecurityGroup"
@@ -662,7 +875,110 @@
                     {
                         "Ref": "PublicSubnet1"
                     }
-                ]
+                ],
+                "LBCookieStickinessPolicy": [
+                    {
+                        "PolicyName": "LBStickyPolicy"
+                    }
+                ],
+                "Listeners": [
+                    {
+                        "LoadBalancerPort": "9443",
+                        "InstancePort": "9443",
+                        "Protocol": "HTTPS",
+                        "InstanceProtocol": "HTTPS",
+                        "PolicyNames": [
+                            "LBStickyPolicy"
+                        ],
+                        "SSLCertificateId": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "arn:aws:iam::",
+                                    {
+                                        "Ref": "AWS::AccountId"
+                                    },
+                                    ":server-certificate",
+                                    "/",
+                                    {
+                                        "Ref": "CertificateName"
+                                    }
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "LoadBalancerPort": "8243",
+                        "InstancePort": "8243",
+                        "Protocol": "HTTPS",
+                        "InstanceProtocol": "HTTPS",
+                        "PolicyNames": [
+                            "LBStickyPolicy"
+                        ],
+                        "SSLCertificateId": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "arn:aws:iam::",
+                                    {
+                                        "Ref": "AWS::AccountId"
+                                    },
+                                    ":server-certificate",
+                                    "/",
+                                    {
+                                        "Ref": "CertificateName"
+                                    }
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "LoadBalancerPort": "9763",
+                        "InstancePort": "9763",
+                        "Protocol": "HTTP",
+                        "InstanceProtocol": "HTTP",
+                        "PolicyNames": [
+                            "LBStickyPolicy"
+                        ]
+                    },
+                    {
+                        "LoadBalancerPort": "10389",
+                        "InstancePort": "10389",
+                        "Protocol": "TCP",
+                        "InstanceProtocol": "TCP"
+                    },
+                    {
+                        "LoadBalancerPort": "8000",
+                        "InstancePort": "8000",
+                        "Protocol": "TCP",
+                        "InstanceProtocol": "TCP"
+                    },
+                    {
+                        "LoadBalancerPort": "5701",
+                        "InstancePort": "5701",
+                        "Protocol": "TCP",
+                        "InstanceProtocol": "TCP"
+                    },
+                    {
+                        "LoadBalancerPort": "5672",
+                        "InstancePort": "5672",
+                        "Protocol": "TCP",
+                        "InstanceProtocol": "TCP"
+                    },
+                    {
+                        "LoadBalancerPort": "10397",
+                        "InstancePort": "10397",
+                        "Protocol": "TCP",
+                        "InstanceProtocol": "TCP"
+                    }
+                ],
+                "HealthCheck": {
+                    "Target": "TCP:9763",
+                    "HealthyThreshold": "3",
+                    "UnhealthyThreshold": "5",
+                    "Interval": "10",
+                    "Timeout": "5"
+                }
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -724,6 +1040,7 @@
         "EIDBSubnetGroup": {
             "Type": "AWS::RDS::DBSubnetGroup",
             "Properties": {
+                "DBSubnetGroupDescription": "DB Subnet Group",
                 "SubnetIds": [
                     {
                         "Ref": "PublicSubnet1"
@@ -739,7 +1056,7 @@
                 }
             }
         },
-        "EIDInstance": {
+        "EIDBInstance": {
             "Type": "AWS::RDS::DBInstance",
             "Properties": {
                 "DBSubnetGroupName": {
@@ -749,7 +1066,21 @@
                     {
                         "Ref": "EICommonSecurityGroup"
                     }
-                ]
+                ],
+                "DBInstanceClass": "db.t2.medium",
+                "AllocatedStorage": 5,
+                "BackupRetentionPeriod": "0",
+                "DBInstanceIdentifier": "wso2eidb",
+                "DBName": "WSO2EI_DB",
+                "Engine": "MySQL",
+                "MasterUsername": {
+                    "Ref": "DBUsername"
+                },
+                "MasterUserPassword": {
+                    "Ref": "DBPassword"
+                },
+                "MultiAZ": "false",
+                "StorageType": "gp2"
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -788,6 +1119,31 @@
                     "id": "cf72e7e6-bccf-4795-a4d6-f4e55c4bfd67"
                 }
             }
+        }
+    },
+    "Parameters": {
+        "KeyPairName": {
+            "Description": "The key pair to establish a SSH connection to the web servers. This should be already created.",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "CertificateName": {
+            "Description": "A previously uploaded certificate to use at the Load Balancer Listeners.",
+            "Type": "String",
+            "MinLength": 1
+        },
+        "DBUsername": {
+            "Description": "The username to be used in the WSO2 AM DB.",
+            "Type": "String",
+            "Default": "root",
+            "MinLength": 4,
+            "AllowedPattern": "[A-Za-z0-9\\-]+"
+        },
+        "DBPassword": {
+            "Description": "The password to be used in the WSO2 AM DB.",
+            "Type": "String",
+            "Default": "rootrootroot",
+            "MinLength": 8,
+            "NoEcho": true
         }
     }
 }
