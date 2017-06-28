@@ -488,7 +488,13 @@
             "Properties": {
                 "CidrBlock": "10.0.0.0/16",
                 "EnableDnsSupport": true,
-                "EnableDnsHostnames": true
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WSO2EI-VPC"
+                    }
+                ]
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -502,7 +508,7 @@
                 "VpcId": {
                     "Ref": "EIVPC"
                 },
-                "CidrBlock": "10.0.252.0/24",
+                "CidrBlock": "10.0.254.0/24",
                 "MapPublicIpOnLaunch": true,
                 "AvailabilityZone": {
                     "Fn::Select": [
@@ -511,7 +517,13 @@
                             "Fn::GetAZs": ""
                         }
                     ]
-                }
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WSO2EI-Subnet1-Public"
+                    }
+                ]
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -525,7 +537,7 @@
                 "VpcId": {
                     "Ref": "EIVPC"
                 },
-                "CidrBlock": "10.0.254.0/24",
+                "CidrBlock": "10.0.252.0/24",
                 "MapPublicIpOnLaunch": true,
                 "AvailabilityZone": {
                     "Fn::Select": [
@@ -534,7 +546,13 @@
                             "Fn::GetAZs": ""
                         }
                     ]
-                }
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WSO2EI-Subnet2-Public"
+                    }
+                ]
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -547,7 +565,13 @@
             "Properties": {
                 "VpcId": {
                     "Ref": "EIVPC"
-                }
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WSO2EI-Subnet1-RouteTable"
+                    }
+                ]
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -560,7 +584,13 @@
             "Properties": {
                 "VpcId": {
                     "Ref": "EIVPC"
-                }
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WSO2EI-Subnet2-RouteTable"
+                    }
+                ]
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -851,7 +881,185 @@
                 "KeyName": {
                     "Ref": "KeyPairName"
                 },
-                "UserData": ""
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "#!/bin/bash",
+                                "mkdir -p /mnt/efs",
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "echo \"",
+                                            {
+                                                "Ref": "EIDepSyncMount"
+                                            },
+                                            ".efs.",
+                                            {
+                                                "Ref": "AWS::Region"
+                                            },
+                                            ".amazonaws.com",
+                                            ":/ /mnt/efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0\" >> /etc/fstab"
+                                        ]
+                                    ]
+                                },
+                                "mount -a -t nfs4",
+                                "mount -t ext4 /dev/sda1 /opt/",
+                                "apt-get update",
+                                "apt-get install unzip -y",
+                                "wget --tries=3 --no-check-certificate --no-cookies --header \"Cookie: oraclelicense=accept-securebackup-cookie\" http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz -P /tmp",
+                                "tar zxvf /tmp/jdk-8u112-linux-x64.tar.gz -C /opt",
+                                "ln -s /opt/jdk1.8.0_112/ /opt/java",
+                                "export JAVA_HOME=\"/opt/java\"",
+                                "",
+                                "wget --tries=3 --user-agent=\"testuser\" --referer=\"http://connect.wso2.com/wso2/getform/reg/new_product_download\" http://product-dist.wso2.com/products/enterprise-integrator/6.1.1/wso2ei-6.1.1.zip -P /tmp",
+                                "unzip /tmp/wso2ei-6.1.1.zip -d /opt",
+                                "wget --tries=3 https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.41.zip -P /tmp",
+                                "unzip /tmp/mysql-connector-java-5.1.41.zip -d /tmp",
+                                "cp /tmp/mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar /opt/wso2ei-6.1.1/lib/",
+                                "",
+                                "public_ip=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)",
+                                "sed -i \"/HostName>www.wso2.org/c\\<HostName>$public_ip</HostName>\" /opt/wso2ei-6.1.1/conf/carbon.xml",
+                                "sed -i \"/MgtHostName>mgt.wso2.org/c\\<MgtHostName>$public_ip</MgtHostName>\" /opt/wso2ei-6.1.1/conf/carbon.xml",
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "sed -i \"30 a\\",
+                                            "<datasource>\\n\\",
+                                            "    <name>WSO2UM_DB<\\/name>\\n\\",
+                                            "    <description>The datasource used for User Management<\\/description>\\n\\",
+                                            "    <jndiConfig>\\n\\",
+                                            "        <name>jdbc\\/WSO2UM_DB<\\/name>\\n\\",
+                                            "    <\\/jndiConfig>\\n\\",
+                                            "    <definition type=\\\"RDBMS\\\">\\n\\",
+                                            "        <configuration>\\n\\",
+                                            "            <url>jdbc:mysql:\\/\\/",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "EIDBInstance",
+                                                    "Endpoint.Address"
+                                                ]
+                                            },
+                                            ":3306\\/WSO2EI_DB?autoReconnect=true<\\/url>\\n\\",
+                                            "            <username>",
+                                            {
+                                                "Ref": "DBUsername"
+                                            },
+                                            "<\\/username>\\n\\",
+                                            "            <password>",
+                                            {
+                                                "Ref": "DBPassword"
+                                            },
+                                            "<\\/password>\\n\\",
+                                            "            <defaultAutoCommit>false<\\/defaultAutoCommit>\\n\\",
+                                            "            <driverClassName>com.mysql.jdbc.Driver<\\/driverClassName>\\n\\",
+                                            "            <maxActive>50<\\/maxActive>\\n\\",
+                                            "            <maxWait>60000<\\/maxWait>\\n\\",
+                                            "            <testOnBorrow>true<\\/testOnBorrow>\\n\\",
+                                            "            <validationQuery>SELECT 1<\\/validationQuery>\\n\\",
+                                            "            <validationInterval>30000<\\/validationInterval>\\n\\",
+                                            "        <\\/configuration>\\n\\",
+                                            "    <\\/definition>\\n\\",
+                                            "<\\/datasource>\\n\" /opt/wso2ei-6.1.1/conf/datasources/master-datasources.xml"
+                                        ]
+                                    ]
+                                },
+                                "sed -i \"30s/jdbc\\/WSO2CarbonDB/jdbc\\/WSO2UM_DB/g\" /opt/wso2ei-6.1.1/conf/user-mgt.xml",
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "sed -i \"30 a\\",
+                                            "<datasource>\\n\\",
+                                            "    <name>WSO2REG_DB<\\/name>\\n\\",
+                                            "    <description>The datasource used for Governance and Config Registry Spaces<\\/description>\\n\\",
+                                            "    <jndiConfig>\\n\\",
+                                            "        <name>jdbc\\/WSO2REG_DB<\\/name>\\n\\",
+                                            "    <\\/jndiConfig>\\n\\",
+                                            "    <definition type=\\\"RDBMS\\\">\\n\\",
+                                            "        <configuration>\\n\\",
+                                            "            <url>jdbc:mysql:\\/\\/",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "EIDBInstance",
+                                                    "Endpoint.Address"
+                                                ]
+                                            },
+                                            ":3306\\/WSO2EI_DB?autoReconnect=true<\\/url>\\n\\",
+                                            "            <username>",
+                                            {
+                                                "Ref": "DBUsername"
+                                            },
+                                            "<\\/username>\\n\\",
+                                            "            <password>",
+                                            {
+                                                "Ref": "DBPassword"
+                                            },
+                                            "<\\/password>\\n\\",
+                                            "            <defaultAutoCommit>false<\\/defaultAutoCommit>\\n\\",
+                                            "            <driverClassName>com.mysql.jdbc.Driver<\\/driverClassName>\\n\\",
+                                            "            <maxActive>50<\\/maxActive>\\n\\",
+                                            "            <maxWait>60000<\\/maxWait>\\n\\",
+                                            "            <testOnBorrow>true<\\/testOnBorrow>\\n\\",
+                                            "            <validationQuery>SELECT 1<\\/validationQuery>\\n\\",
+                                            "            <validationInterval>30000<\\/validationInterval>\\n\\",
+                                            "        <\\/configuration>\\n\\",
+                                            "    <\\/definition>\\n\\",
+                                            "<\\/datasource>\\n\" /opt/wso2ei-6.1.1/conf/datasources/master-datasources.xml"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "sed -i \"32 a\\",
+                                            "<dbConfig name=\\\"govregistry\\\">\\n\\",
+                                            "    <dataSource>jdbc\\/WSO2REG_DB<\\/dataSource>\\n\\",
+                                            "<\\/dbConfig>\\n\\",
+                                            "<remoteInstance url=\\\"https:\\/\\/publisher.apim-wso2.com\\\">\\n\\",
+                                            "<id>gov<\\/id>\\n\\",
+                                            "<cacheId>user@jdbc:mysql:\\/\\/",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "EIDBInstance",
+                                                    "Endpoint.Address"
+                                                ]
+                                            },
+                                            ":3306\\/regdb<\\/cacheId>\\n\\",
+                                            "<dbConfig>govregistry<\\/dbConfig>\\n\\",
+                                            "<readOnly>false<\\/readOnly>\\n\\",
+                                            "<enableCache>true<\\/enableCache>\\n\\",
+                                            "<registryRoot>\\/<\\/registryRoot>\\n\\",
+                                            "<\\/remoteInstance>\\n\\",
+                                            "<mount path=\\\"\\/_system\\/governance\\\" overwrite=\\\"true\\\">\\n\\",
+                                            "<instanceId>gov<\\/instanceId>\\n\\",
+                                            "<targetPath>\\/_system\\/governance<\\/targetPath>\\n\\",
+                                            "<\\/mount>\\n\\",
+                                            "<mount path=\\\"\\/_system\\/config\\\" overwrite=\\\"true\\\">\\n\\",
+                                            "<instanceId>gov<\\/instanceId>\\n\\",
+                                            "<targetPath>\\/_system\\/config<\\/targetPath>\\n\\",
+                                            "<\\/mount>\\n\" /opt/wso2ei-6.1.1/conf/registry.xml"
+                                        ]
+                                    ]
+                                },
+                                "sed -i \"420s/.*/<parameter name=\\\"HostnameVerifier\\\">AllowAll<\\/parameter>/\" /opt/wso2ei-6.1.1/conf/axis2/axis2.xml",
+                                "",
+                                "if [ ! -d \"/mnt/efs/synapse-configs\" ]; then",
+                                "    mkdir -p /mnt/efs/synapse-configs",
+                                "    cp -r /opt/wso2ei-6.1.1/repository/deployment/server/synapse-configs /mnt/efs/synapse-configs",
+                                "fi",
+                                "rm -rf /opt/wso2ei-6.1.1/repository/deployment/server/synapse-configs",
+                                "ln -s /mnt/efs/synapse-configs/synapse-configs /opt/wso2ei-6.1.1/repository/deployment/server/synapse-configs",
+                                "",
+                                "/opt/wso2ei-6.1.1/bin/integrator.sh -Dsetup start"
+                            ]
+                        ]
+                    }
+                }
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
