@@ -1353,5 +1353,25 @@
             "MinLength": 8,
             "NoEcho": true
         }
+    },
+    "Outputs": {
+      "ServerURL": {
+        "Value": {
+          "Fn::Join": [
+            "", [
+              "https://",
+              {
+                "Fn::GetAtt": [
+                  "EILoadBalancer",
+                  "DNSName"
+                ]
+              },
+              ":9443/carbon"
+            ]
+          ]
+        },
+        "Description": "WSO2 EI URL to be used to access the server.",
+        "Export" : { "Name" : {"Fn::Sub": "${AWS::StackName}-ServerURL" }}
+      }
     }
 }
