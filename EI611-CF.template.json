@@ -887,7 +887,9 @@
                             "\n",
                             [
                                 "#!/bin/bash",
-                                "set -e"
+                                "set -e",
+                                "apt-get update",
+                                "apt-get install unzip nfs-common -y",
                                 "mkdir -p /mnt/efs",
                                 {
                                     "Fn::Join": [
@@ -907,9 +909,6 @@
                                     ]
                                 },
                                 "mount -a -t nfs4",
-                                "mount -t ext4 /dev/sda1 /opt/",
-                                "apt-get update",
-                                "apt-get install unzip -y",
                                 "wget --tries=3 -q --no-check-certificate --no-cookies --header \"Cookie: oraclelicense=accept-securebackup-cookie\" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz -P /tmp",
                                 "tar zxvf /tmp/jdk-8u131-linux-x64.tar.gz -C /opt",
                                 "ln -s /opt/jdk1.8.0_131/ /opt/java",
