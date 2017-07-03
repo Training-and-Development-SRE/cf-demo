@@ -3,24 +3,23 @@ Metadata:
   'AWS::CloudFormation::Designer':
     16835601-a199-4d4a-85ba-b18e6cceaa39:
       size:
-        width: 890
-        height: 590
+        width: 560
+        height: 680
       position:
         x: -520
         'y': -230
       z: 0
       embeds:
-        - 9d05a48b-4143-490d-afdf-809526ac15b5
-        - 08e664f3-26a4-4c0e-a135-5864a00d0741
-        - 29ada4b5-4f54-44e3-a0b2-933f7bf04048
-        - 9d41dd85-de4c-4a8a-9ae4-3af5d1612e78
-        - d927e807-44dc-4671-bd51-148f385ffef1
-        - 5c76658f-4ded-4521-8ecb-9e861a2986a7
-        - b6fe529c-a907-4d4b-bc5a-7c2c0084ca4d
-        - 6810f928-0f73-4ba1-9d35-d37b5707a767
         - f7941d35-f790-418d-bd23-f77e7f972c6d
-        - 7fe38410-f5f6-4252-8b42-9cad49362258
+        - d927e807-44dc-4671-bd51-148f385ffef1
+        - b6fe529c-a907-4d4b-bc5a-7c2c0084ca4d
+        - 9d41dd85-de4c-4a8a-9ae4-3af5d1612e78
+        - 29ada4b5-4f54-44e3-a0b2-933f7bf04048
+        - 08e664f3-26a4-4c0e-a135-5864a00d0741
+        - 9d05a48b-4143-490d-afdf-809526ac15b5
         - e6ab444a-8611-4966-8a93-568265fa4d15
+        - 6810f928-0f73-4ba1-9d35-d37b5707a767
+        - 5c76658f-4ded-4521-8ecb-9e861a2986a7
     9d05a48b-4143-490d-afdf-809526ac15b5:
       size:
         width: 140
@@ -70,10 +69,11 @@ Metadata:
         width: 60
         height: 60
       position:
-        x: -470
-        'y': -160
+        x: -460
+        'y': -170
       z: 2
       parent: 29ada4b5-4f54-44e3-a0b2-933f7bf04048
+      embeds: []
       references:
         - 092a4af4-51d8-4f86-a34f-b541da00cc2d
     faba0cc1-95f2-4c0d-9085-d5a6c839f72c:
@@ -81,10 +81,11 @@ Metadata:
         width: 60
         height: 60
       position:
-        x: -286
-        'y': -163.66665649414062
+        x: -290
+        'y': -170
       z: 2
       parent: 9d41dd85-de4c-4a8a-9ae4-3af5d1612e78
+      embeds: []
       references:
         - 092a4af4-51d8-4f86-a34f-b541da00cc2d
     092a4af4-51d8-4f86-a34f-b541da00cc2d:
@@ -95,12 +96,13 @@ Metadata:
         x: -650
         'y': -60
       z: 0
+      embeds: []
     22a8e504-0f78-4810-84b7-09389d5e06a2:
       source:
         id: 092a4af4-51d8-4f86-a34f-b541da00cc2d
       target:
         id: 16835601-a199-4d4a-85ba-b18e6cceaa39
-      z: 2
+      z: 0
     ce0b5a6a-9916-4f56-b9ee-c04a0cd2f01c:
       source:
         id: 6688ca28-56cf-40f5-ba16-209952337fe9
@@ -122,15 +124,17 @@ Metadata:
         'y': 150
       z: 1
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
+      embeds: []
     5c76658f-4ded-4521-8ecb-9e861a2986a7:
       size:
         width: 60
         height: 60
       position:
-        x: -30
-        'y': -170
+        x: -110
+        'y': 60
       z: 1
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
+      embeds: []
       isconnectedto:
         - 6810f928-0f73-4ba1-9d35-d37b5707a767
       isassociatedwith:
@@ -140,19 +144,23 @@ Metadata:
         width: 60
         height: 60
       position:
-        x: -30
-        'y': -60
+        x: -110
+        'y': 200
       z: 1
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
+      embeds: []
+      ismemberof:
+        - d927e807-44dc-4671-bd51-148f385ffef1
     6810f928-0f73-4ba1-9d35-d37b5707a767:
       size:
         width: 60
         height: 60
       position:
-        x: -30
-        'y': 200
+        x: -380
+        'y': 380
       z: 1
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
+      embeds: []
       isconnectedto:
         - 08e664f3-26a4-4c0e-a135-5864a00d0741
         - 9d05a48b-4143-490d-afdf-809526ac15b5
@@ -167,6 +175,7 @@ Metadata:
         'y': -30
       z: 2
       parent: 9d05a48b-4143-490d-afdf-809526ac15b5
+      embeds: []
       ismemberof:
         - d927e807-44dc-4671-bd51-148f385ffef1
       references:
@@ -176,10 +185,11 @@ Metadata:
         width: 60
         height: 60
       position:
-        x: -277.96991346725156
-        'y': -2.3144953552948095
+        x: -290
+        'y': -30
       z: 2
       parent: 08e664f3-26a4-4c0e-a135-5864a00d0741
+      embeds: []
       ismemberof:
         - d927e807-44dc-4671-bd51-148f385ffef1
       references:
@@ -193,6 +203,7 @@ Metadata:
         'y': 80
       z: 1
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
+      embeds: []
     c65ef213-f5f2-4f45-b6ce-95ab5817a8e9:
       source:
         id: 2050db38-51ea-4926-b987-acd90d83c453
@@ -228,26 +239,31 @@ Metadata:
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
     e6ab444a-8611-4966-8a93-568265fa4d15:
       size:
-        width: 140
-        height: 140
+        width: 120
+        height: 120
       position:
-        x: 190
-        'y': 60
+        x: -410
+        'y': 250
       z: 1
       parent: 16835601-a199-4d4a-85ba-b18e6cceaa39
       embeds:
         - 40ec7ece-424b-4718-ab04-f346e6d7f659
+      isconnectedto:
+        - 9d05a48b-4143-490d-afdf-809526ac15b5
+        - 08e664f3-26a4-4c0e-a135-5864a00d0741
     40ec7ece-424b-4718-ab04-f346e6d7f659:
       size:
         width: 60
         height: 60
       position:
-        x: 216.80517543472075
-        'y': 104.33163629588441
+        x: -380
+        'y': 280
       z: 2
       parent: e6ab444a-8611-4966-8a93-568265fa4d15
+      embeds: []
       ismemberof:
         - 7fe38410-f5f6-4252-8b42-9cad49362258
+        - d927e807-44dc-4671-bd51-148f385ffef1
     1a25485e-2ef4-4b4c-8fa7-12fc3d407b1c:
       source:
         id: 40ec7ece-424b-4718-ab04-f346e6d7f659
@@ -289,172 +305,630 @@ Metadata:
         id: 29ada4b5-4f54-44e3-a0b2-933f7bf04048
       target:
         id: 9d05a48b-4143-490d-afdf-809526ac15b5
-      z: 15
+      z: 1
     cf72e7e6-bccf-4795-a4d6-f4e55c4bfd67:
       source:
         id: 9d41dd85-de4c-4a8a-9ae4-3af5d1612e78
       target:
         id: 08e664f3-26a4-4c0e-a135-5864a00d0741
-      z: 16
+      z: 1
+    6b636cbb-eaf4-45a9-80ea-10b9010cbb65:
+      source:
+        id: e6ab444a-8611-4966-8a93-568265fa4d15
+      target:
+        id: 9d05a48b-4143-490d-afdf-809526ac15b5
+      z: 3
+    631dcb92-1bb0-44e8-b38e-f5725810b2e6:
+      source:
+        id: e6ab444a-8611-4966-8a93-568265fa4d15
+      target:
+        id: 08e664f3-26a4-4c0e-a135-5864a00d0741
+      z: 4
+    a4baf8aa-8b8e-427c-83a1-f88256db1023:
+      source:
+        id: b6fe529c-a907-4d4b-bc5a-7c2c0084ca4d
+      target:
+        id: d927e807-44dc-4671-bd51-148f385ffef1
+      z: 3
+    b0a5abd0-c961-4c00-a8f8-e271a1a6f680:
+      source:
+        id: 6810f928-0f73-4ba1-9d35-d37b5707a767
+        selector: 'g:nth-child(1) g:nth-child(4) g:nth-child(2) circle:nth-child(1)     '
+        port: 'AWS::RefLink-AWS::EC2::Subnet-Subnets'
+      target:
+        id: 08e664f3-26a4-4c0e-a135-5864a00d0741
+      z: 4
+    5398e8ba-4fef-4875-8efa-b16acaad5e3a:
+      source:
+        id: 6810f928-0f73-4ba1-9d35-d37b5707a767
+        selector: 'g:nth-child(1) g:nth-child(4) g:nth-child(2) circle:nth-child(1)     '
+        port: 'AWS::RefLink-AWS::EC2::Subnet-Subnets'
+      target:
+        id: 9d05a48b-4143-490d-afdf-809526ac15b5
+      z: 4
 Resources:
-  EC2VPC4TL2F:
+  EIVPC:
     Type: 'AWS::EC2::VPC'
-    Properties: {}
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: WSO2EI-VPC
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 16835601-a199-4d4a-85ba-b18e6cceaa39
-  EC2S4MHWX:
+  PublicSubnet1:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      VpcId: !Ref EC2VPC4TL2F
+      VpcId: !Ref EIVPC
+      CidrBlock: 10.0.254.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select
+        - '0'
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: WSO2EI-Subnet1-Public
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 9d05a48b-4143-490d-afdf-809526ac15b5
-  EC2S3W9N8:
+  PublicSubnet2:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      VpcId: !Ref EC2VPC4TL2F
+      VpcId: !Ref EIVPC
+      CidrBlock: 10.0.252.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select
+        - '1'
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: WSO2EI-Subnet2-Public
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 08e664f3-26a4-4c0e-a135-5864a00d0741
-  EC2RT45ZR6:
+  PublicRouteTableSN1:
     Type: 'AWS::EC2::RouteTable'
     Properties:
-      VpcId: !Ref EC2VPC4TL2F
+      VpcId: !Ref EIVPC
+      Tags:
+        - Key: Name
+          Value: WSO2EI-Subnet1-RouteTable
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 29ada4b5-4f54-44e3-a0b2-933f7bf04048
-  EC2RT1O6KQ:
+  PublicRouteTableSN2:
     Type: 'AWS::EC2::RouteTable'
     Properties:
-      VpcId: !Ref EC2VPC4TL2F
+      VpcId: !Ref EIVPC
+      Tags:
+        - Key: Name
+          Value: WSO2EI-Subnet2-RouteTable
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 9d41dd85-de4c-4a8a-9ae4-3af5d1612e78
-  EC2R1RL7I:
+  PublicRouteSN1:
     Type: 'AWS::EC2::Route'
     Properties:
-      GatewayId: !Ref EC2IG4T4CD
-      RouteTableId: !Ref EC2RT45ZR6
+      GatewayId: !Ref EIInternetGateway
+      RouteTableId: !Ref PublicRouteTableSN1
+      DestinationCidrBlock: 0.0.0.0/0
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 6688ca28-56cf-40f5-ba16-209952337fe9
-  EC2R26JBF:
+  PublicRouteSN2:
     Type: 'AWS::EC2::Route'
     Properties:
-      GatewayId: !Ref EC2IG4T4CD
-      RouteTableId: !Ref EC2RT1O6KQ
+      GatewayId: !Ref EIInternetGateway
+      RouteTableId: !Ref PublicRouteTableSN2
+      DestinationCidrBlock: 0.0.0.0/0
     Metadata:
       'AWS::CloudFormation::Designer':
         id: faba0cc1-95f2-4c0d-9085-d5a6c839f72c
-  EC2IG4T4CD:
+  EIInternetGateway:
     Type: 'AWS::EC2::InternetGateway'
     Properties: {}
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 092a4af4-51d8-4f86-a34f-b541da00cc2d
-  EC2VPCG2W342:
+  EIVPCGatewayAttachment:
     Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
-      InternetGatewayId: !Ref EC2IG4T4CD
-      VpcId: !Ref EC2VPC4TL2F
+      InternetGatewayId: !Ref EIInternetGateway
+      VpcId: !Ref EIVPC
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 22a8e504-0f78-4810-84b7-09389d5e06a2
-  EC2SG4IUEY:
+  EICommonSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
-      VpcId: !Ref EC2VPC4TL2F
+      GroupDescription: Common Security Group
+      VpcId: !Ref EIVPC
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: '0'
+          ToPort: '0'
+          CidrIp: 0.0.0.0/0
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '2049'
+          ToPort: '2049'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '9443'
+          ToPort: '9443'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '5701'
+          ToPort: '5701'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '9763'
+          ToPort: '9763'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '8243'
+          ToPort: '8243'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '8280'
+          ToPort: '8280'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '443'
+          ToPort: '443'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '3306'
+          ToPort: '3306'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: ICMP
+          FromPort: '-1'
+          ToPort: '-1'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '3306'
+          ToPort: '3306'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '10389'
+          ToPort: '10389'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '8000'
+          ToPort: '8000'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '5701'
+          ToPort: '5701'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '5672'
+          ToPort: '5672'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '9611'
+          ToPort: '9611'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '9711'
+          ToPort: '9711'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '10397'
+          ToPort: '10397'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '7611'
+          ToPort: '7611'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '7711'
+          ToPort: '7711'
+          CidrIp: 0.0.0.0/0
     Metadata:
       'AWS::CloudFormation::Designer':
         id: d927e807-44dc-4671-bd51-148f385ffef1
-  ASASGMYZP:
+  EIAutoscalingGroup:
     Type: 'AWS::AutoScaling::AutoScalingGroup'
     Properties:
-      LaunchConfigurationName: !Ref ASLC56AKY
+      LaunchConfigurationName: !Ref EILaunchConfig
+      VPCZoneIdentifier:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      DesiredCapacity: 1
+      MinSize: 1
+      MaxSize: 1
       LoadBalancerNames:
-        - !Ref ELBLB3IKD7
+        - !Ref EILoadBalancer
+      Tags:
+        - Key: Name
+          Value: WSO2EI-Instance
+          PropagateAtLaunch: 'true'
+        - Key: Product
+          Value: WSO2EI
+          PropagateAtLaunch: 'true'
+        - Key: Version
+          Value: 6.1.1
+          PropagateAtLaunch: 'true'
+        - Key: Cluster
+          Value: WSO2EI-Integrator
+          PropagateAtLaunch: 'true'
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 5c76658f-4ded-4521-8ecb-9e861a2986a7
-  ASLC56AKY:
+  EILaunchConfig:
     Type: 'AWS::AutoScaling::LaunchConfiguration'
-    Properties: {}
+    Properties:
+      SecurityGroups:
+        - !Ref EICommonSecurityGroup
+      ImageId: ami-8fab8fea
+      InstanceType: t2.medium
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: '20'
+            VolumeType: gp2
+            DeleteOnTermination: 'true'
+      KeyName: !Ref KeyPairName
+      UserData: !Base64
+        'Fn::Join':
+          - |+
+
+          - - '#!/bin/bash'
+            - set -e
+            - apt-get update
+            - apt-get install unzip nfs-common -y
+            - mkdir -p /mnt/efs
+            - !Join
+              - ''
+              - - echo "
+                - !Ref EIDepSyncMount
+                - .efs.
+                - !Ref 'AWS::Region'
+                - .amazonaws.com
+                - >-
+                  :/ /mnt/efs nfs4
+                  nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2
+                  0 0" >> /etc/fstab
+            - mount -a -t nfs4
+            - >-
+              wget --tries=3 -q --no-check-certificate --no-cookies --header
+              "Cookie: oraclelicense=accept-securebackup-cookie"
+              http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+              -P /tmp
+            - tar zxvf /tmp/jdk-8u131-linux-x64.tar.gz -C /opt
+            - ln -s /opt/jdk1.8.0_131/ /opt/java
+            - export JAVA_HOME="/opt/java"
+            - ''
+            - >-
+              wget --tries=3 --user-agent="testuser"
+              --referer="http://connect.wso2.com/wso2/getform/reg/new_product_download"
+              http://product-dist.wso2.com/products/enterprise-integrator/6.1.1/wso2ei-6.1.1.zip
+              -P /tmp
+            - unzip /tmp/wso2ei-6.1.1.zip -d /opt
+            - >-
+              wget --tries=3
+              https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.41.zip
+              -P /tmp
+            - unzip /tmp/mysql-connector-java-5.1.41.zip -d /tmp
+            - >-
+              cp
+              /tmp/mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar
+              /opt/wso2ei-6.1.1/lib/
+            - ''
+            - >-
+              public_ip=$(curl
+              http://169.254.169.254/latest/meta-data/public-ipv4)
+            - >-
+              sed -i "/HostName>www.wso2.org/c\<HostName>$public_ip</HostName>"
+              /opt/wso2ei-6.1.1/conf/carbon.xml
+            - >-
+              sed -i
+              "/MgtHostName>mgt.wso2.org/c\<MgtHostName>$public_ip</MgtHostName>"
+              /opt/wso2ei-6.1.1/conf/carbon.xml
+            - !Join
+              - ''
+              - - sed -i "30 a\
+                - <datasource>\n\
+                - '    <name>WSO2UM_DB<\/name>\n\'
+                - '    <description>The datasource used for User Management<\/description>\n\'
+                - '    <jndiConfig>\n\'
+                - '        <name>jdbc\/WSO2UM_DB<\/name>\n\'
+                - '    <\/jndiConfig>\n\'
+                - '    <definition type=\"RDBMS\">\n\'
+                - '        <configuration>\n\'
+                - '            <url>jdbc:mysql:\/\/'
+                - !GetAtt
+                  - EIDBInstance
+                  - Endpoint.Address
+                - ':3306\/WSO2EI_DB?autoReconnect=true<\/url>\n\'
+                - '            <username>'
+                - !Ref DBUsername
+                - <\/username>\n\
+                - '            <password>'
+                - !Ref DBPassword
+                - <\/password>\n\
+                - '            <defaultAutoCommit>false<\/defaultAutoCommit>\n\'
+                - '            <driverClassName>com.mysql.jdbc.Driver<\/driverClassName>\n\'
+                - '            <maxActive>50<\/maxActive>\n\'
+                - '            <maxWait>60000<\/maxWait>\n\'
+                - '            <testOnBorrow>true<\/testOnBorrow>\n\'
+                - '            <validationQuery>SELECT 1<\/validationQuery>\n\'
+                - '            <validationInterval>30000<\/validationInterval>\n\'
+                - '        <\/configuration>\n\'
+                - '    <\/definition>\n\'
+                - >-
+                  <\/datasource>\n"
+                  /opt/wso2ei-6.1.1/conf/datasources/master-datasources.xml
+            - >-
+              sed -i "30s/jdbc\/WSO2CarbonDB/jdbc\/WSO2UM_DB/g"
+              /opt/wso2ei-6.1.1/conf/user-mgt.xml
+            - !Join
+              - ''
+              - - sed -i "30 a\
+                - <datasource>\n\
+                - '    <name>WSO2REG_DB<\/name>\n\'
+                - '    <description>The datasource used for Governance and Config Registry Spaces<\/description>\n\'
+                - '    <jndiConfig>\n\'
+                - '        <name>jdbc\/WSO2REG_DB<\/name>\n\'
+                - '    <\/jndiConfig>\n\'
+                - '    <definition type=\"RDBMS\">\n\'
+                - '        <configuration>\n\'
+                - '            <url>jdbc:mysql:\/\/'
+                - !GetAtt
+                  - EIDBInstance
+                  - Endpoint.Address
+                - ':3306\/WSO2EI_DB?autoReconnect=true<\/url>\n\'
+                - '            <username>'
+                - !Ref DBUsername
+                - <\/username>\n\
+                - '            <password>'
+                - !Ref DBPassword
+                - <\/password>\n\
+                - '            <defaultAutoCommit>false<\/defaultAutoCommit>\n\'
+                - '            <driverClassName>com.mysql.jdbc.Driver<\/driverClassName>\n\'
+                - '            <maxActive>50<\/maxActive>\n\'
+                - '            <maxWait>60000<\/maxWait>\n\'
+                - '            <testOnBorrow>true<\/testOnBorrow>\n\'
+                - '            <validationQuery>SELECT 1<\/validationQuery>\n\'
+                - '            <validationInterval>30000<\/validationInterval>\n\'
+                - '        <\/configuration>\n\'
+                - '    <\/definition>\n\'
+                - >-
+                  <\/datasource>\n"
+                  /opt/wso2ei-6.1.1/conf/datasources/master-datasources.xml
+            - !Join
+              - ''
+              - - sed -i "32 a\
+                - <dbConfig name=\"govregistry\">\n\
+                - '    <dataSource>jdbc\/WSO2REG_DB<\/dataSource>\n\'
+                - <\/dbConfig>\n\
+                - '<remoteInstance url=\"https:\/\/publisher.apim-wso2.com\">\n\'
+                - <id>gov<\/id>\n\
+                - '<cacheId>user@jdbc:mysql:\/\/'
+                - !GetAtt
+                  - EIDBInstance
+                  - Endpoint.Address
+                - ':3306\/regdb<\/cacheId>\n\'
+                - <dbConfig>govregistry<\/dbConfig>\n\
+                - <readOnly>false<\/readOnly>\n\
+                - <enableCache>true<\/enableCache>\n\
+                - <registryRoot>\/<\/registryRoot>\n\
+                - <\/remoteInstance>\n\
+                - <mount path=\"\/_system\/governance\" overwrite=\"true\">\n\
+                - <instanceId>gov<\/instanceId>\n\
+                - <targetPath>\/_system\/governance<\/targetPath>\n\
+                - <\/mount>\n\
+                - <mount path=\"\/_system\/config\" overwrite=\"true\">\n\
+                - <instanceId>gov<\/instanceId>\n\
+                - <targetPath>\/_system\/config<\/targetPath>\n\
+                - <\/mount>\n" /opt/wso2ei-6.1.1/conf/registry.xml
+            - >-
+              sed -i "420s/.*/<parameter
+              name=\"HostnameVerifier\">AllowAll<\/parameter>/"
+              /opt/wso2ei-6.1.1/conf/axis2/axis2.xml
+            - ''
+            - 'if [ ! -d "/mnt/efs/synapse-configs" ]; then'
+            - '    mkdir -p /mnt/efs/synapse-configs'
+            - '    cp -r /opt/wso2ei-6.1.1/repository/deployment/server/synapse-configs /mnt/efs/synapse-configs'
+            - fi
+            - >-
+              rm -rf
+              /opt/wso2ei-6.1.1/repository/deployment/server/synapse-configs
+            - >-
+              ln -s /mnt/efs/synapse-configs/synapse-configs
+              /opt/wso2ei-6.1.1/repository/deployment/server/synapse-configs
+            - ''
+            - /opt/wso2ei-6.1.1/bin/integrator.sh -Dsetup start
     Metadata:
       'AWS::CloudFormation::Designer':
         id: b6fe529c-a907-4d4b-bc5a-7c2c0084ca4d
-  ELBLB3IKD7:
+  EILoadBalancer:
     Type: 'AWS::ElasticLoadBalancing::LoadBalancer'
     Properties:
+      CrossZone: true
       SecurityGroups:
-        - !Ref EC2SG4IUEY
+        - !Ref EICommonSecurityGroup
       Subnets:
-        - !Ref EC2S3W9N8
-        - !Ref EC2S4MHWX
+        - !Ref PublicSubnet2
+        - !Ref PublicSubnet1
+      LBCookieStickinessPolicy:
+        - PolicyName: LBStickyPolicy
+      Listeners:
+        - LoadBalancerPort: '9443'
+          InstancePort: '9443'
+          Protocol: HTTPS
+          InstanceProtocol: HTTPS
+          PolicyNames:
+            - LBStickyPolicy
+          SSLCertificateId: !Join
+            - ''
+            - - 'arn:aws:iam::'
+              - !Ref 'AWS::AccountId'
+              - ':server-certificate'
+              - /
+              - !Ref CertificateName
+        - LoadBalancerPort: '8243'
+          InstancePort: '8243'
+          Protocol: HTTPS
+          InstanceProtocol: HTTPS
+          PolicyNames:
+            - LBStickyPolicy
+          SSLCertificateId: !Join
+            - ''
+            - - 'arn:aws:iam::'
+              - !Ref 'AWS::AccountId'
+              - ':server-certificate'
+              - /
+              - !Ref CertificateName
+        - LoadBalancerPort: '9763'
+          InstancePort: '9763'
+          Protocol: HTTP
+          InstanceProtocol: HTTP
+          PolicyNames:
+            - LBStickyPolicy
+        - LoadBalancerPort: '10389'
+          InstancePort: '10389'
+          Protocol: TCP
+          InstanceProtocol: TCP
+        - LoadBalancerPort: '8000'
+          InstancePort: '8000'
+          Protocol: TCP
+          InstanceProtocol: TCP
+        - LoadBalancerPort: '5701'
+          InstancePort: '5701'
+          Protocol: TCP
+          InstanceProtocol: TCP
+        - LoadBalancerPort: '5672'
+          InstancePort: '5672'
+          Protocol: TCP
+          InstanceProtocol: TCP
+        - LoadBalancerPort: '10397'
+          InstancePort: '10397'
+          Protocol: TCP
+          InstanceProtocol: TCP
+      HealthCheck:
+        Target: 'TCP:9763'
+        HealthyThreshold: '3'
+        UnhealthyThreshold: '5'
+        Interval: '10'
+        Timeout: '5'
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 6810f928-0f73-4ba1-9d35-d37b5707a767
-  EFSMT3KVPS:
+  EIEFSMountTargetSN1:
     Type: 'AWS::EFS::MountTarget'
     Properties:
-      SubnetId: !Ref EC2S4MHWX
-      FileSystemId: !Ref EFSFS3DZ0S
+      SubnetId: !Ref PublicSubnet1
+      FileSystemId: !Ref EIDepSyncMount
       SecurityGroups:
-        - !Ref EC2SG4IUEY
+        - !Ref EICommonSecurityGroup
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 2050db38-51ea-4926-b987-acd90d83c453
-  EFSMT2AIB7:
+  EIEFSMountTargetSN2:
     Type: 'AWS::EFS::MountTarget'
     Properties:
-      SubnetId: !Ref EC2S3W9N8
-      FileSystemId: !Ref EFSFS3DZ0S
+      SubnetId: !Ref PublicSubnet2
+      FileSystemId: !Ref EIDepSyncMount
       SecurityGroups:
-        - !Ref EC2SG4IUEY
+        - !Ref EICommonSecurityGroup
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 874e1463-a392-4a8a-a37b-eb625b12591b
-  EFSFS3DZ0S:
+  EIDepSyncMount:
     Type: 'AWS::EFS::FileSystem'
     Properties: {}
     Metadata:
       'AWS::CloudFormation::Designer':
         id: f7941d35-f790-418d-bd23-f77e7f972c6d
-  RDSDBSGT1JC:
-    Type: 'AWS::RDS::DBSecurityGroup'
-    Properties:
-      EC2VpcId: !Ref EC2VPC4TL2F
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 7fe38410-f5f6-4252-8b42-9cad49362258
-  RDSDBSG4417C:
+  EIDBSubnetGroup:
     Type: 'AWS::RDS::DBSubnetGroup'
-    Properties: {}
+    Properties:
+      DBSubnetGroupDescription: DB Subnet Group
+      SubnetIds:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
     Metadata:
       'AWS::CloudFormation::Designer':
         id: e6ab444a-8611-4966-8a93-568265fa4d15
-  RDSDBI1EYOB:
+  EIDBInstance:
     Type: 'AWS::RDS::DBInstance'
     Properties:
-      DBSubnetGroupName: !Ref RDSDBSG4417C
-      DBSecurityGroups:
-        - !Ref RDSDBSGT1JC
+      DBSubnetGroupName: !Ref EIDBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref EICommonSecurityGroup
+      DBInstanceClass: db.t2.medium
+      AllocatedStorage: 5
+      BackupRetentionPeriod: '0'
+      DBInstanceIdentifier: wso2eidb
+      DBName: WSO2EI_DB
+      Engine: MySQL
+      MasterUsername: !Ref DBUsername
+      MasterUserPassword: !Ref DBPassword
+      MultiAZ: 'false'
+      StorageType: gp2
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 40ec7ece-424b-4718-ab04-f346e6d7f659
-  EC2SRTA1E8HW:
+  RouteTableAssociationSN1:
     Type: 'AWS::EC2::SubnetRouteTableAssociation'
     Properties:
-      RouteTableId: !Ref EC2RT45ZR6
-      SubnetId: !Ref EC2S4MHWX
+      RouteTableId: !Ref PublicRouteTableSN1
+      SubnetId: !Ref PublicSubnet1
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 562c978e-f977-48d0-8ff7-c7eb5bb11620
-  EC2SRTALJ2R:
+  RouteTableAssociationSN2:
     Type: 'AWS::EC2::SubnetRouteTableAssociation'
     Properties:
-      RouteTableId: !Ref EC2RT1O6KQ
-      SubnetId: !Ref EC2S3W9N8
+      RouteTableId: !Ref PublicRouteTableSN2
+      SubnetId: !Ref PublicSubnet2
     Metadata:
       'AWS::CloudFormation::Designer':
         id: cf72e7e6-bccf-4795-a4d6-f4e55c4bfd67
+Parameters:
+  KeyPairName:
+    Description: >-
+      The key pair to establish a SSH connection to the web servers. This should
+      be already created.
+    Type: 'AWS::EC2::KeyPair::KeyName'
+  CertificateName:
+    Description: A previously uploaded certificate to use at the Load Balancer Listeners.
+    Type: String
+    MinLength: 1
+  DBUsername:
+    Description: The username to be used in the WSO2 AM DB.
+    Type: String
+    Default: root
+    MinLength: 4
+    AllowedPattern: '[A-Za-z0-9\-]+'
+  DBPassword:
+    Description: The password to be used in the WSO2 AM DB.
+    Type: String
+    Default: rootrootroot
+    MinLength: 8
+    NoEcho: true
+Outputs:
+  ServerURL:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - EILoadBalancer
+          - DNSName
+        - ':9443/carbon'
+    Description: WSO2 EI URL to be used to access the server.
+    Export:
+      Name: !Sub '${AWS::StackName}-ServerURL'
